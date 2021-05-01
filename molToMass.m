@@ -12,6 +12,7 @@ function [] = molToMass()
         basis = uicontrol('style','text','units','normalized','position',[0.023 0.034 0.09 0.02], 'string','Basis: 1 Mole', 'BackgroundColor','#FFD9A5','horizontalalignment','center');
         panelNotice = uipanel('position', [.806 .02 .18 0.11],'BackgroundColor','#FFD9A5');
         fractionHelp = uicontrol('Style','text','units','normalized','position', [0.81 .025 .17 .09], 'string', 'Divide percentage of component by 100 to get the fraction. Ex. 37% = 0.37 or 0.13 = 13%','BackgroundColor','#FFD9A5','horizontalalignment','center');
+    
     %making the column of components, noneditable text box
     %generally, there will be less than 8 components, but just in case, 8
     %options are available
@@ -33,6 +34,7 @@ function [] = molToMass()
             moleFracDisplayMessage = uicontrol('style','text','units','normalized','position', [0.24 0.73 0.13 0.08], 'string', 'Molar Fractions','BackgroundColor','#F1E0FF');
             moleFracTotalDisplayMessage = uicontrol('style','text','Units','normalized','position', [0.22 0.16 0.03 0.03],'string','Total:','HorizontalAlignment','left','BackgroundColor','#F1E0FF');
             gui.moleFracSum = uicontrol('style','text','Units','normalized','position', [0.25 0.16 0.04 0.03],'string',num2str(gui.zeros),'HorizontalAlignment','left','BackgroundColor','#F1E0FF');
+           
             %listing out and coloring, along with setting up the formatting
             %of each individual possible user input
             gui.moleFracStored = [0 0 0 0 0 0 0 0];
@@ -44,7 +46,8 @@ function [] = molToMass()
                 gui.moleFrac(6) = uicontrol('style','edit','units','normalized','position', [0.265 0.35 0.08 0.04],'callback',{@moleFracTotal,6},'string','0.00');   
                 gui.moleFrac(7) = uicontrol('style','edit','units','normalized','position', [0.265 0.28 0.08 0.04],'callback',{@moleFracTotal,7},'string','0.00');  
                 gui.moleFrac(8) = uicontrol('style','edit','units','normalized','position', [0.265 0.21 0.08 0.04],'callback',{@moleFracTotal,8},'string','0.00');
-    %making the column of molar masses, editable boxes
+   
+     %making the column of molar masses, editable boxes
         gui.panel(3) = uipanel('position', [.412 .155 .18 .70],'BackgroundColor','#D9F4FF');
         gui.molarMassDisplayMessage = uicontrol('style','text','units','normalized','position', [0.436 0.73 0.13 0.08], 'string', 'Molar Mass (g / mol)','BackgroundColor','#D9F4FF');
 
@@ -63,6 +66,7 @@ function [] = molToMass()
             gui.panel(3) = uipanel('position', [.609 .155 .18 .70],'BackgroundColor','#D9FFF3');
             gui.massDisplayMessage = uicontrol('style','text','units','normalized','position', [0.636 0.73 0.13 0.08], 'string', 'Mass (g)','BackgroundColor','#D9FFF3','HorizontalAlignment','center');
             gui.molarFracTotalDisplayMessage = uicontrol('style','text','Units','normalized','position', [0.616 0.16 0.03 0.03],'string','Total:','HorizontalAlignment','left','BackgroundColor','#D9FFF3');
+   
     %Masses text boxes to be filled and massCalcSum function call to find
     %the masses from fraction and molar mass
             gui.massCalcSum = uicontrol('style','text','Units','normalized','position', [0.65 0.16 0.04 0.03],'string',num2str(gui.zeros),'HorizontalAlignment','left','BackgroundColor','#D9FFF3');    
